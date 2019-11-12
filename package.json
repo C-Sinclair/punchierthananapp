@@ -41,6 +41,7 @@
 		"@storybook/addons": "^5.2.6",
 		"@storybook/react-native": "^5.2.6",
 		"@storybook/react-native-server": "^5.2.6",
+		"@storybook/theming": "^5.2.6",
 		"@types/jest": "^24.0.23",
 		"@types/react": "^16.8.23",
 		"@types/react-native": "^0.57.65",
@@ -64,8 +65,7 @@
 	"jest": {
 		"preset": "react-native",
 		"setupFiles": [
-			"./__tests__/setup.js",
-			"./__tests__/require-context.js"
+			"./__tests__/setup.js"
 		],
 		"moduleNameMapper": {
 			"^.+\\.(jpg|jpeg)$": "RelativeImageStub",

@@ -1,4 +1,5 @@
 {
+	"name": "PunchierThanAn",
 	"main": "node_modules/expo/AppEntry.js",
 	"scripts": {
 		"start": "expo start",
@@ -9,7 +10,8 @@
 		"storybook": "start-storybook -p 7007",
 		"prestorybook": "rnstl",
 		"storyserver": "(adb reverse tcp:7007 tcp:7007 || true) && start-storybook",
-		"test": "jest __tests__/**/*.spec.js"
+		"test": "jest",
+		"detox": "detox"
 	},
 	"dependencies": {
 		"@storybook/cli": "^5.2.6",
@@ -21,7 +23,8 @@
 		"react-native": "https://github.com/expo/react-native/archive/sdk-35.0.0.tar.gz",
 		"react-native-vector-icons": "^6.6.0",
 		"react-native-web": "^0.11.7",
-		"storybook": "^5.1.11"
+		"storybook": "^5.1.11",
+		"styled-components": "^4.4.1"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.7.2",
@@ -43,7 +46,9 @@
 		"@types/react-native": "^0.57.65",
 		"awesome-typescript-loader": "^5.2.1",
 		"babel-loader": "^8.0.6",
+		"babel-plugin-require-context-hook": "^1.0.0",
 		"babel-preset-expo": "^7.1.0",
+		"detox": "^14.7.1",
 		"enzyme": "^3.10.0",
 		"enzyme-adapter-react-16": "^1.15.1",
 		"eslint": "^6.6.0",
@@ -51,6 +56,7 @@
 		"react-docgen-typescript-loader": "^3.3.0",
 		"react-native-config": "^0.11.7",
 		"react-native-storybook-loader": "^1.8.1",
+		"react-test-renderer": "^16.11.0",
 		"ts-jest": "^24.1.0",
 		"typescript": "^3.7.2"
 	},
@@ -58,7 +64,8 @@
 	"jest": {
 		"preset": "react-native",
 		"setupFiles": [
-			"./__tests__/setup.js"
+			"./__tests__/setup.js",
+			"./__tests__/require-context.js"
 		],
 		"moduleNameMapper": {
 			"^.+\\.(jpg|jpeg)$": "RelativeImageStub",
@@ -72,6 +79,17 @@
 			],
 			"pattern": "**/*.story.js",
 			"outputFile": "./storybook/storyloader.js"
+		}
+	},
+	"detox": {
+		"test-runner": "jest",
+		"configurations": {
+			"ios.sim.debug": {
+				"binaryPath": "ios/build/Build/Products/Debug-iphonesimulator/PunchierThanAn.app",
+				"build": "xcodebuild -workspace ios/PunchierThanAn.xcworkspace -scheme PunchierThanAn -configuration Debug -sdk iphonesimulator -derivedDataPath ios/build",
+				"type": "ios.simulator",
+				"name": "iPhone 8"
+			}
 		}
 	}
 }

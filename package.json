@@ -20,6 +20,7 @@
 	"devDependencies": {
 		"@babel/core": "^7.7.2",
 		"@jonny/react-native-mock": "^0.4.2",
+		"@react-native-community/eslint-config": "^0.0.5",
 		"@storybook/addon-actions": "^5.2.6",
 		"@storybook/addon-links": "^5.2.6",
 		"@storybook/addons": "^5.2.6",
@@ -31,6 +32,7 @@
 		"babel-preset-expo": "^7.1.0",
 		"enzyme": "^3.10.0",
 		"enzyme-adapter-react-16": "^1.15.1",
+		"eslint": "^6.6.0",
 		"jest": "^24.9.0",
 		"typescript": "^3.6.3"
 	},

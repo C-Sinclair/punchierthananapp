@@ -5,12 +5,10 @@
 
 function loadStories() {
 	require('../App/Test.story');
-	require('../App/components/Colours/Colours.story');
 }
 
 const stories = [
 	'../App/Test.story',
-	'../App/components/Colours/Colours.story'
 ];
 
 module.exports = {

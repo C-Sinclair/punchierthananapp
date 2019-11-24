@@ -1,5 +1,5 @@
 import React from 'react'
-import { TabIcon } from './Navigator'
+import Navigator, { TabIcon } from './Navigator'
 import { storiesOf } from '@storybook/react-native'
 import colours from '../themes/Colours'
 
@@ -27,4 +27,9 @@ storiesOf("TabIcon", module)
     ))
     .add("Articles inactive", () => (
         <TabIcon name={"Articles"} colour={colours.inactive} />
+    ))
+
+storiesOf('Navigator', module)
+    .add("Main tab bar", () => (
+        <Navigator />
     ))

@@ -14,15 +14,13 @@ const tabs = createBottomTabNavigator(
     },
     {
         defaultNavigationOptions: ({ navigation }) => ({
-            tabBarIcon: ({ focused, horizontal, tintColor }) => {
+            tabBarIcon: ({ focused, horizontal, tintColor }) => { 
                 return (
-                    <Icon 
-                        name={iconName(navigation.state.routeName)} 
-                        size={25} 
-                        color={tintColor} />
-                )
-              },
-            }),
+                    <TabIcon 
+                        name={navigation.state.routeName}
+                        colour={tintColor} />
+            )},
+        }),
         tabBarOptions: {
             activeTintColor: Colours.main,
             inactiveTintColor: Colours.inactive,
@@ -32,16 +30,44 @@ const tabs = createBottomTabNavigator(
 
 const Navigator = createAppContainer(tabs)
 
-const iconName = routeName => {
-    switch (routeName) {
+const HomeIcon = props => (
+    <Icon 
+        name="home" 
+        size={25} 
+        color={props.colour} />
+)
+
+const VideosIcon = props => (
+    <Icon
+        name="youtube"
+        size={25}
+        color={props.colour} />
+)
+
+const PodcastsIcon = props => (
+    <Icon
+        name="headphones"
+        size={25}
+        color={props.colour} />
+)
+
+const ArticlesIcon = props => (
+    <Icon
+        name="book-open"
+        size={25}
+        color={props.colour} />
+)
+
+export const TabIcon = ({ name, colour }) => {
+    switch (name) {
         case "Home":
-            return "home"
+            return <HomeIcon colour={colour} />
         case "Videos":
-            return "youtube"
+            return <VideosIcon colour={colour} />
         case "Podcasts":
-            return "headphones"
+            return <PodcastsIcon colour={colour} />
         case "Articles":
-            return "book-open"
+            return <ArticlesIcon colour={colour} />
     }
 }
 

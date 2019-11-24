@@ -29,7 +29,7 @@ const App: React.FunctionComponent<{}> = () => {
 }
 
 const APP_NAME = "punchierthananapp"
-const SHOW_STORYBOOK = false
+const SHOW_STORYBOOK = true
 
 let RootComponent = App
 if (__DEV__) {

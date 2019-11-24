@@ -1,13 +1,15 @@
 import React from 'react'
 import { createBottomTabNavigator } from 'react-navigation-tabs'
 import Icon from 'react-native-vector-icons/Feather'
-import { Home, Videos } from '../screens'
+import { Home, Videos, Podcasts, Articles } from '../screens'
 import { createAppContainer } from 'react-navigation'
 
 const tabs = createBottomTabNavigator(
     {
         Home, 
-        Videos
+        Videos,
+        Podcasts,
+        Articles
     },
     {
         defaultNavigationOptions: ({ navigation }) => ({

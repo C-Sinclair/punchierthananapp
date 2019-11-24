@@ -1,6 +1,6 @@
 {
 	"name": "punchier-than",
-	"main": "node_modules/expo/AppEntry.js",
+	"main": "index.js",
 	"scripts": {
 		"start": "react-native start",
 		"android": "react-native run-android",
@@ -18,16 +18,20 @@
 		"format:ts": "prettier --write {.,**}/*.{ts,tsx}"
 	},
 	"dependencies": {
+		"@emotion/core": "^10.0.22",
 		"@react-native-community/async-storage": "^1.6.3",
 		"jest-static-stubs": "^0.0.1",
 		"ramda": "^0.26.1",
 		"react": "16.8.3",
 		"react-native": "^0.61.5",
 		"react-native-gesture-handler": "^1.5.1",
+		"react-native-reanimated": "^1.4.0",
+		"react-native-safe-area-context": "^0.6.1",
 		"react-native-splash-screen": "^3.2.0",
 		"react-native-vector-icons": "^6.6.0",
 		"react-native-web": "^0.11.7",
-		"react-navigation": "^4.0.10"
+		"react-navigation": "^4.0.10",
+		"react-navigation-tabs": "^2.6.0"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.7.2",

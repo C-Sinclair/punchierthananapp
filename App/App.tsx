@@ -1,6 +1,7 @@
 import React from "react"
 import { AppRegistry, YellowBox, View, Text } from "react-native"
 import { screensEnabled } from "react-native-screens"
+import Navigator from './navigation/Navigator'
 
 // This puts screens in a native ViewController or Activity
 screensEnabled()
@@ -23,9 +24,7 @@ Object.defineProperty(ReactNative, "AsyncStorage", {
 
 const App: React.FunctionComponent<{}> = () => {
     return (
-        <View>
-            <Text>Punchier Than An App!</Text>
-        </View>
+        <Navigator />
     )
 }
 

@@ -1,5 +1,5 @@
 import React from "react"
-import { AppRegistry, YellowBox, View, Text } from "react-native"
+import { AppRegistry, YellowBox } from "react-native"
 import { screensEnabled } from "react-native-screens"
 import Navigator from './navigation/Navigator'
 

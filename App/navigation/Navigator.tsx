@@ -68,6 +68,8 @@ export const TabIcon = ({ name, colour }) => {
             return <PodcastsIcon colour={colour} />
         case "Articles":
             return <ArticlesIcon colour={colour} />
+        default:
+            return null
     }
 }
 

@@ -1,132 +1,133 @@
 {
-	"name": "punchier-than",
-	"main": "index.js",
-	"scripts": {
-		"start": "react-native start",
-		"android": "react-native run-android",
-		"ios": "react-native run-ios",
-		"test": "jest",
-		"storybook": "start-storybook -p 7007",
-		"prestorybook": "rnstl",
-		"storyserver": "(adb reverse tcp:7007 tcp:7007 || true) && start-storybook",
-		"lint": "eslint index.js app --fix --ext .js,.ts,.tsx",
-		"compile": "tsc --noEmit -p . --pretty",
-		"format": "npm-run-all format:*",
-		"format:js": "prettier --write {.,**}/*.js",
-		"format:json": "prettier --write {.,**}/*.json",
-		"format:md": "prettier --write {.,**}/*.md",
-		"format:ts": "prettier --write {.,**}/*.{ts,tsx}"
-	},
-	"dependencies": {
-		"@emotion/core": "^10.0.22",
-		"@react-native-community/async-storage": "^1.6.3",
-		"jest-static-stubs": "^0.0.1",
-		"ramda": "^0.26.1",
-		"react": "16.8.3",
-		"react-native": "^0.61.5",
-		"react-native-gesture-handler": "^1.5.1",
-		"react-native-reanimated": "^1.4.0",
-		"react-native-safe-area-context": "^0.6.1",
-		"react-native-splash-screen": "^3.2.0",
-		"react-native-vector-icons": "^6.6.0",
-		"react-native-web": "^0.11.7",
-		"react-navigation": "^4.0.10",
-		"react-navigation-tabs": "^2.6.0"
-	},
-	"devDependencies": {
-		"@babel/core": "^7.7.2",
-		"@babel/plugin-proposal-decorators": "^7.7.4",
-		"@babel/plugin-proposal-optional-catch-binding": "^7.7.4",
-		"@babel/runtime": "^7.7.4",
-		"@jonny/react-native-mock": "^0.4.2",
-		"@react-native-community/eslint-config": "^0.0.5",
-		"@storybook/addon-actions": "^5.2.6",
-		"@storybook/addon-info": "^5.2.6",
-		"@storybook/addon-knobs": "^5.2.6",
-		"@storybook/addon-links": "^5.2.6",
-		"@storybook/addon-notes": "^5.2.6",
-		"@storybook/addon-ondevice-knobs": "^5.2.6",
-		"@storybook/addon-ondevice-notes": "^5.2.6",
-		"@storybook/addon-storyshots": "^5.2.6",
-		"@storybook/addons": "^5.2.6",
-		"@storybook/react": "^5.2.6",
-		"@storybook/react-native": "^5.2.6",
-		"@storybook/react-native-server": "^5.2.6",
-		"@storybook/theming": "^5.2.6",
-		"@types/enzyme": "^3.10.3",
-		"@types/jest": "^24.0.23",
-		"@types/react": "^16.8.23",
-		"@types/react-native": "^0.57.65",
-		"@types/react-test-renderer": "^16.9.1",
-		"@typescript-eslint/eslint-plugin": "^2.8.0",
-		"@typescript-eslint/parser": "^2.8.0",
-		"awesome-typescript-loader": "^5.2.1",
-		"babel-eslint": "^10.0.3",
-		"babel-jest": "^24.9.0",
-		"babel-loader": "^8.0.6",
-		"babel-plugin-require-context-hook": "^1.0.0",
-		"detox": "^14.7.1",
-		"enzyme": "^3.10.0",
-		"enzyme-adapter-react-16": "^1.15.1",
-		"eslint": "^6.6.0",
-		"eslint-config-airbnb": "^18.0.1",
-		"eslint-config-prettier": "^6.7.0",
-		"eslint-config-standard": "^14.1.0",
-		"eslint-plugin-import": "^2.18.2",
-		"eslint-plugin-node": "^10.0.0",
-		"eslint-plugin-prettier": "^3.1.1",
-		"eslint-plugin-react": "^7.16.0",
-		"eslint-plugin-react-native": "^3.8.1",
-		"jest": "^24.9.0",
-		"metro-react-native-babel-preset": "^0.57.0",
-		"npm-run-all": "^4.1.5",
-		"prettier": "^1.19.1",
-		"react-devtools-core": "^4.2.0",
-		"react-docgen-typescript-loader": "^3.3.0",
-		"react-native-config": "^0.11.7",
-		"react-native-dotenv": "^0.2.0",
-		"react-native-storybook-loader": "^1.8.1",
-		"react-test-renderer": "^16.11.0",
-		"ts-jest": "^24.1.0",
-		"typescript": "^3.7.2"
-	},
-	"private": true,
-	"jest": {
-		"preset": "react-native",
-		"setupFiles": [
-			"<rootDir>/node_modules/react-native/jest/setup.js",
-			"<rootDir>/__tests__/setup.ts"
-		],
-		"testPathIgnorePatterns": [
-			"/node_modules/",
-			"/e2e"
-		],
-		"transformIgnorePatterns": [
-			"node_modules/(?!(jest-)?react-native|react-native|react-navigation|@react-navigation|@storybook|@react-native-community)"
-		],
-		"moduleNameMapper": {
-			"^.+\\.(jpg|jpeg)$": "RelativeImageStub",
-			".+\\.(png)$": "jest-static-stubs/png"
-		}
-	},
-	"config": {
-		"react-native-storybook-loader": {
-			"searchDir": [
-				"./App"
-			],
-			"pattern": "**/*.story.js",
-			"outputFile": "./storybook/storyloader.js"
-		}
-	},
-	"detox": {
-		"test-runner": "jest",
-		"configurations": {
-			"ios.sim.debug": {
-				"binaryPath": "ios/build/Build/Products/Debug-iphonesimulator/PunchierThanAn.app",
-				"build": "xcodebuild -workspace ios/PunchierThanAn.xcworkspace -scheme PunchierThanAn -configuration Debug -sdk iphonesimulator -derivedDataPath ios/build",
-				"type": "ios.simulator",
-				"name": "iPhone 8"
-			}
-		}
-	}
+  "name": "punchier-than",
+  "main": "index.js",
+  "scripts": {
+    "start": "react-native start",
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "pretest": "detox build -c android.attached",
+    "test": "detox test -c android.attached --reuse",
+    "prestorybook": "rnstl",
+    "storybook": "start-storybook -p 7007",
+    "storyserver": "(adb reverse tcp:7007 tcp:7007 || true) && start-storybook",
+    "compile": "tsc --noEmit -p . --pretty"
+  },
+  "dependencies": {
+    "@emotion/core": "^10.0.22",
+    "@react-native-community/async-storage": "^1.6.3",
+    "jest-static-stubs": "^0.0.1",
+    "ramda": "^0.26.1",
+    "react": "16.8.3",
+    "react-native": "^0.61.5",
+    "react-native-gesture-handler": "^1.5.1",
+    "react-native-reanimated": "^1.4.0",
+    "react-native-safe-area-context": "^0.6.1",
+    "react-native-splash-screen": "^3.2.0",
+    "react-native-vector-icons": "^6.6.0",
+    "react-native-web": "^0.11.7",
+    "react-navigation": "^4.0.10",
+    "react-navigation-tabs": "^2.6.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.2",
+    "@babel/plugin-proposal-decorators": "^7.7.4",
+    "@babel/plugin-proposal-optional-catch-binding": "^7.7.4",
+    "@babel/runtime": "^7.7.4",
+    "@jonny/react-native-mock": "^0.4.2",
+    "@react-native-community/eslint-config": "^0.0.5",
+    "@storybook/addon-actions": "^5.2.6",
+    "@storybook/addon-info": "^5.2.6",
+    "@storybook/addon-knobs": "^5.2.6",
+    "@storybook/addon-links": "^5.2.6",
+    "@storybook/addon-notes": "^5.2.6",
+    "@storybook/addon-ondevice-knobs": "^5.2.6",
+    "@storybook/addon-ondevice-notes": "^5.2.6",
+    "@storybook/addon-storyshots": "^5.2.6",
+    "@storybook/addons": "^5.2.6",
+    "@storybook/react": "^5.2.6",
+    "@storybook/react-native": "^5.2.6",
+    "@storybook/react-native-server": "^5.2.6",
+    "@storybook/theming": "^5.2.6",
+    "@types/detox": "^14.5.1",
+    "@types/enzyme": "^3.10.3",
+    "@types/jasmine": "^3.5.0",
+    "@types/jest": "^24.0.23",
+    "@types/react": "^16.8.23",
+    "@types/react-native": "^0.57.65",
+    "@types/react-test-renderer": "^16.9.1",
+    "@typescript-eslint/eslint-plugin": "^2.8.0",
+    "@typescript-eslint/parser": "^2.8.0",
+    "awesome-typescript-loader": "^5.2.1",
+    "babel-eslint": "^10.0.3",
+    "babel-jest": "^24.9.0",
+    "babel-loader": "^8.0.6",
+    "babel-plugin-require-context-hook": "^1.0.0",
+    "detox": "^14.7.1",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.15.1",
+    "eslint": "^6.6.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-prettier": "^6.7.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-react": "^7.16.0",
+    "eslint-plugin-react-native": "^3.8.1",
+    "jest": "^24.9.0",
+    "metro-react-native-babel-preset": "^0.57.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^1.19.1",
+    "react-devtools-core": "^4.2.0",
+    "react-docgen-typescript-loader": "^3.3.0",
+    "react-native-config": "^0.11.7",
+    "react-native-dotenv": "^0.2.0",
+    "react-native-storybook-loader": "^1.8.1",
+    "react-test-renderer": "^16.11.0",
+    "ts-jest": "^24.2.0",
+    "typescript": "^3.7.2"
+  },
+  "private": true,
+  "config": {
+    "react-native-storybook-loader": {
+      "searchDir": [
+        "./App"
+      ],
+      "pattern": "**/*.story.js",
+      "outputFile": "./storybook/storyloader.js"
+    }
+  },
+  "detox": {
+    "test-runner": "jest",
+    "configurations": {
+      "ios.sim.debug": {
+        "binaryPath": "ios/build/Build/Products/Debug-iphonesimulator/PunchierThanAn.app",
+        "build": "xcodebuild -workspace ios/PunchierThanAn.xcworkspace -scheme PunchierThanAn -configuration Debug -sdk iphonesimulator -derivedDataPath ios/build",
+        "type": "ios.simulator",
+        "name": "iPhone 8"
+      },
+      "android.emu.debug": {
+        "binaryPath": "android/app/build/outputs/apk/debug/app-debug.apk",
+        "build": "cd android && ./gradlew assembleDebug assembleAndroidTest -DtestBuildType=debug && cd ..",
+        "type": "android.emulator",
+        "device": {
+          "avdName": "Nexus_5X_API_24"
+        }
+      },
+      "android.emu.release": {
+        "binaryPath": "android/app/build/outputs/apk/release/app-release.apk",
+        "build": "cd android && ./gradlew assembleRelease assembleAndroidTest -DtestBuildType=release && cd ..",
+        "type": "android.emulator",
+        "device": {
+          "avdName": "Nexus_5X_API_26"
+        }
+      },
+      "android.attached": {
+        "binaryPath": "android/app/build/outputs/apk/release/app-release.apk",
+        "build": "cd android && ./gradlew assembleRelease assembleAndroidTest -DtestBuildType=release && cd ..",
+        "type": "android.attached",
+        "name": "CTLGAP1892106916"
+      }
+    }
+  }
 }

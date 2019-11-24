@@ -1,8 +1,8 @@
 import 'react-native';
 import React from 'react';
-import App from '../App';
+import App from '../../App';
 import renderer from 'react-test-renderer';
 
-it('renders correctly', () => {
+it('Renders correctly', () => {
   renderer.create(<App />);
 });

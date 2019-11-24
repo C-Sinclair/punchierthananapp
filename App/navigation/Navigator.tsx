@@ -3,6 +3,7 @@ import { createBottomTabNavigator } from 'react-navigation-tabs'
 import Icon from 'react-native-vector-icons/Feather'
 import { Home, Videos, Podcasts, Articles } from '../screens'
 import { createAppContainer } from 'react-navigation'
+import Colours from '../themes/Colours'
 
 const tabs = createBottomTabNavigator(
     {
@@ -23,8 +24,8 @@ const tabs = createBottomTabNavigator(
               },
             }),
         tabBarOptions: {
-            activeTintColor: 'tomato',
-            inactiveTintColor: 'gray',
+            activeTintColor: Colours.main,
+            inactiveTintColor: Colours.inactive,
         }
     }
 )
